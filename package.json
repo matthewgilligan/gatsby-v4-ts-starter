@@ -1,10 +1,22 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-v4-ts-starter",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A simple starter to get up and developing quickly with Gatsby and Typescript",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Matthew gilligan <mcgilligan97@gmail.com>",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
   "dependencies": {
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-helmet": "^6.1.5",
     "gatsby": "^4.7.1",
     "gatsby-plugin-gatsby-cloud": "^4.7.0",
     "gatsby-plugin-image": "^2.7.0",
@@ -17,29 +29,41 @@
     "prop-types": "^15.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.22",
+    "eslint": "^8.9.0",
+    "eslint-plugin-react": "^7.28.0",
+    "gatsby-plugin-root-import": "^2.0.8",
+    "lint-staged": "^12.3.3",
     "prettier": "^2.5.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "eslint --fix"
+    ],
+    "*.+{js,htm,html,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql,mdx}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "jsxSingleQuote": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/matthewgilligan/gatsby-v4-ts-starter"
   }
 }

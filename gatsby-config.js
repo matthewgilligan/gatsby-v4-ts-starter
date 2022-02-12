@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -11,8 +13,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `assets`,
+        path: `${__dirname}/src/assets`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -28,11 +30,23 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        assets: path.join(__dirname, 'src/assets'),
+        components: path.join(__dirname, 'src/components'),
+        hooks: path.join(__dirname, 'src/hooks'),
+        layouts: path.join(__dirname, 'src/layouts'),
+        pages: path.join(__dirname, 'src/pages'),
+        styles: path.join(__dirname, 'src/styles'),
+        templates: path.join(__dirname, 'src/templates'),
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
